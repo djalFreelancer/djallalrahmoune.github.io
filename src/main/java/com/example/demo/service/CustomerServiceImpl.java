@@ -25,6 +25,11 @@ public class CustomerServiceImpl implements CustomerService{
         return new ArrayList<>(customers.values());
     }
 
+    @Override
+    public Customer getCustomerById(Integer id) {
+        return customers.get(id);
+    }
+
     private void loadCustomers( ) {
 
         customers = new HashMap<>();

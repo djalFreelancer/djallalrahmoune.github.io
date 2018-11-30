@@ -45,12 +45,12 @@
                 <td th:text="${c.city}"></td>
                 <td th:text="${c.zipCode}"></td>
                 
-                <td><a th:href="${'/product/'+c.id}">View</a></td>
-                <td><a th:href="${'/product/edit/'+c.id}">Edit</a></td>
-                <td><a th:href="${'/product/delete/'+c.id}">Delete</a></td>
+                <td><a th:href="${'/customer/'+c.id}">View</a></td>
+                <td><a th:href="${'/customer/edit/'+c.id}">Edit</a></td>
+                <td><a th:href="${'/customer/delete/'+c.id}">Delete</a></td>
             </tr>
         </table>
-        <a th:href="${'/product/new'}">New product</a>
+        <a th:href="${'/customer/new'}">New product</a>
     </div>
 </div>
 
