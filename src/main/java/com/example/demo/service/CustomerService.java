@@ -1,14 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Customer;
-import org.springframework.web.bind.annotation.PathVariable;
 
+public interface CustomerService extends CRUDService<Customer> {
 
-import java.util.List;
-
-public interface CustomerService {
-
-    public List<Customer> listAllCustomers();
-
-    Customer getCustomerById(Integer id);
 }

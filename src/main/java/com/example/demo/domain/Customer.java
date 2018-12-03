@@ -1,6 +1,6 @@
 package com.example.demo.domain;
 
-public class Customer {
+public class Customer implements DomainObject{
 
     private Integer id;
     private String firstName;
@@ -12,10 +12,12 @@ public class Customer {
     private String city;
     private String zipCode;
 
+
+    @Override
     public Integer getId() {
         return id;
     }
-
+    @Override
     public void setId(Integer id) {
         this.id = id;
     }

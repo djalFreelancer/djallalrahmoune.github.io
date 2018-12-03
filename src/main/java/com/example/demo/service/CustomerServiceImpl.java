@@ -1,38 +1,42 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Customer;
+
+import com.example.demo.domain.DomainObject;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
-
-    private Map<Integer, Customer> customers;
-
-    public CustomerServiceImpl(){
-        loadCustomers();
-    }
-
+public class CustomerServiceImpl extends AbstractMapService implements CustomerService {
 
     @Override
-    public List<Customer> listAllCustomers() {
-        return new ArrayList<>(customers.values());
+    public List<DomainObject> listAll() {
+        return super.listAll();
     }
 
     @Override
-    public Customer getCustomerById(Integer id) {
-        return customers.get(id);
+    public Customer getById(Integer id) {
+        return (Customer) super.getById(id);
     }
 
-    private void loadCustomers( ) {
+    @Override
+    public Customer saveOrUpdate(Customer customer) {
 
-        customers = new HashMap<>();
+        return (Customer) super.saveOrUpdate(customer);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        super.delete(id);
+    }
+
+    @Override
+    protected void loadDomainObjects( ) {
+
+        domainMap = new HashMap<>();
 
         Customer c1 = new Customer();
         c1.setId(1);
@@ -45,7 +49,7 @@ public class CustomerServiceImpl implements CustomerService{
         c1.setAdresseLine2("perp2");
         c1.setZipCode("66");
 
-        customers.put(1, c1);
+        domainMap.put(1, c1);
 
         Customer c2 = new Customer();
         c2.setId(2);
@@ -58,7 +62,7 @@ public class CustomerServiceImpl implements CustomerService{
         c2.setZipCode("66");
         c2.setCity("perp");
 
-        customers.put(2, c2);
+        domainMap.put(2, c2);
 
         Customer c3 = new Customer();
         c3.setId(3);
@@ -71,7 +75,7 @@ public class CustomerServiceImpl implements CustomerService{
         c3.setZipCode("66");
         c3.setCity("perp");
 
-        customers.put(3, c3);
+        domainMap.put(3, c3);
     }
 
     }
